@@ -1,7 +1,7 @@
 import sys
 
 def main():
-    valid_commands = ["mkdir", "exit"]  # Lista de comandos válidos
+    valid_commands = ["mkdir", "exit 0"]  # Lista de comandos válidos
     while True:  # Mantém o loop para aceitar múltiplas entradas
         sys.stdout.write("$ ")
         sys.stdout.flush()  # Garante que o prompt seja exibido corretamente
@@ -10,8 +10,7 @@ def main():
         if command in valid_commands:
             if command == "mkdir":
                 print("mkdir: comando executado (simulação)")  # Exemplo de execução
-            elif command == "exit":
-                print("Saindo...")
+            elif command == "exit 0":
                 break  # Encerra o loop
         else:
             print(f"{command}: command not found")
