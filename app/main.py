@@ -1,7 +1,9 @@
 import sys
+import shutil
 
 def main():
-    valid_commands = ["exit 0", "exit", "echo", "type"]  # Lista de comandos válidos
+    valid_commands = ["cat", "cp", "mkdir", "my_exe"]  # Lista de comandos válidos
+    shell_builtin = ["exit 0", "exit", "echo", "type", ]  # Lista de comandos internos
     
     while True:  # Mantém o loop para aceitar múltiplas entradas
         sys.stdout.write("$ ")
@@ -19,7 +21,10 @@ def main():
         if cmd == "echo":
             print(" ".join(args))  # Imprime todos os argumentos como uma string
         elif cmd == "type":
-            if args and args[0] in valid_commands: # Verifica se args não está vazio e dps acessa o args 0
+            if args and args[0] in valid_commands: # Verifica se args não está vazio e dps acessa o args 0     
+                path = shutil.which(args[0])  # Retorna o caminho do executável do comando https://docs.python.org/3/library/shutil.html
+                print(f"{args[0]} is {path}")
+            elif args and args[0] in shell_builtin:
                 print(f"{args[0]} is a shell builtin")
             else:
                 print(f"{args[0]}: not found")
