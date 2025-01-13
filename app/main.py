@@ -41,7 +41,7 @@ def main():
             case ["type", *cmd]:
                 match cmd:
                     # Verifica se o comando é um builtin do shell
-                    case ["echo" | "exit" | "type"]:
+                    case ["echo" | "exit" | "type" | "pwd"]:
                         print(f"{cmd[0]} is a shell builtin")
                     
                     # Caso contrário, tenta encontrar o executável no PATH
@@ -51,6 +51,9 @@ def main():
                             print(f"{cmd[0]} is {location}")
                         else:
                             print(f"{' '.join(cmd)} not found")
+                            
+            case ["pwd"]:
+                print(f"{os.getcwd()}")
             
             # Caso o comando não seja reconhecido, tenta executá-lo como um comando externo
             case _:
