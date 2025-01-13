@@ -1,6 +1,7 @@
 import sys
 import os
 
+
 # Função para encontrar um executável no PATH do sistema
 def find_in_path(param):
     # Obtém o valor da variável de ambiente PATH, que contém os diretórios onde os executáveis estão localizados
@@ -53,7 +54,9 @@ def main():
                             print(f"{' '.join(cmd)} not found")
                             
             case ["cd", *cmd]:
-                if cmd:
+                if cmd[0] == '~':
+                    os.chdir(os.getenv('HOME'))
+                elif cmd:
                     try:
                         os.chdir(cmd[0])
                     except FileNotFoundError:
