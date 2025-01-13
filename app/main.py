@@ -41,7 +41,7 @@ def main():
             case ["type", *cmd]:
                 match cmd:
                     # Verifica se o comando é um builtin do shell
-                    case ["echo" | "exit" | "type" | "pwd"]:
+                    case ["echo" | "exit" | "type" | "pwd" | "cd"]:
                         print(f"{cmd[0]} is a shell builtin")
                     
                     # Caso contrário, tenta encontrar o executável no PATH
@@ -52,8 +52,16 @@ def main():
                         else:
                             print(f"{' '.join(cmd)} not found")
                             
+            case ["cd", *cmd]:
+                if cmd:
+                    try:
+                        os.chdir(cmd[0])
+                    except FileNotFoundError:
+                        print(f"cd: {cmd[0]}: No such file or directory")
+                            
             case ["pwd"]:
-                print(f"{os.getcwd()}")
+                print(f"{os.getcwd()}") #https://stackoverflow.com/questions/5137497/find-the-current-directory-and-files-directory
+                #os.getcwd() (returns "a string representing the current working directory")
             
             # Caso o comando não seja reconhecido, tenta executá-lo como um comando externo
             case _:
