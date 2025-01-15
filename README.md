@@ -1,4 +1,3 @@
-# michaelrobertt-codecrafters-shell-python
 A shell command-line interface that executes commands and manages processes.
 =======
 [![progress-banner](https://backend.codecrafters.io/progress/shell/c05a9453-4908-4a80-8935-e9fd7048ae1e)](https://app.codecrafters.io/users/codecrafters-bot?r=2qF)
