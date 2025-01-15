@@ -15,6 +15,10 @@ REPLs, builtin commands, and more.
 
 ---
 
+![](https://github.com/michaelrobertt/codecrafters-shell-python/blob/main/app/Anima%C3%A7%C3%A3o.gif?raw=true)
+
+---
+
 - [✨ Features](#-features)
   - [💡 Print a Prompt](#-print-a-prompt)
   - [🚫 Handle Invalid Commands](#-handle-invalid-commands)
