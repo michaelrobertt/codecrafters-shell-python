@@ -36,7 +36,7 @@ def main():
         # Se não houver tokens, continua para o próximo loop (ignora linhas em branco)
         if not tokens:
             continue
-        
+            
         # Estrutura de correspondência para tratar diferentes comandos
         match tokens:
             # Caso o comando seja "exit 0", encerra o shell
